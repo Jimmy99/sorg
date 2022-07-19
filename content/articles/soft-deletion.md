@@ -11,7 +11,7 @@ Anyone who's seen a couple different production database environments is likely 
 UPDATE foo SET deleted_at = now() WHERE id = $1;
 ```
 
-The concept behind soft deletion is to make deletion safer, and reversible. Once a record's been hit by a hard `DELETE`, it may technically still be recoverable by digging down into the storage layer, but sufficed to say that it's really hard to get back. Theoretically with soft deletion, you just set `deleted_at` back to `NULL` and you're done:
+The concept behind soft deletion is to make deletion safer, and reversible. Once a record's been hit by a hard `DELETE`, it may technically still be recoverable by digging down into the storage layer, but suffice to say that it's really hard to get back. Theoretically with soft deletion, you just set `deleted_at` back to `NULL` and you're done:
 
 ``` sql
 -- and like magic, it's back!!
